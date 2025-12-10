@@ -16,7 +16,7 @@ const navLinks = document.querySelectorAll('.nav-link');
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
-    
+
     // Animate hamburger icon
     const spans = hamburger.querySelectorAll('span');
     if (navMenu.classList.contains('active')) {
@@ -46,7 +46,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        
+
         if (target) {
             const offsetTop = target.offsetTop - 80; // Account for fixed navbar
             window.scrollTo({
@@ -62,16 +62,16 @@ const sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', () => {
     let current = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        
+
         if (window.scrollY >= sectionTop - 100) {
             current = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${current}`) {
@@ -96,7 +96,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all sections and cards
-document.querySelectorAll('section, .project-card, .skill-category, .timeline-item, .education-card, .contact-card, .stat-item').forEach(el => {
+document.querySelectorAll('section, .project-card, .skill-category, .timeline-item, .education-card, .certification-card, .contact-card, .stat-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -130,7 +130,7 @@ const animateStats = () => {
         const target = parseFloat(stat.textContent);
         const increment = target / 50;
         let current = 0;
-        
+
         const updateCount = () => {
             if (current < target) {
                 current += increment;
@@ -140,7 +140,7 @@ const animateStats = () => {
                 stat.textContent = target.toFixed(2);
             }
         };
-        
+
         updateCount();
     });
 };
@@ -187,19 +187,19 @@ const createCursorTrail = () => {
         transition: opacity 0.3s;
     `;
     document.body.appendChild(trail);
-    
+
     const animate = () => {
         cursorX += (mouseX - cursorX) * 0.1;
         cursorY += (mouseY - cursorY) * 0.1;
-        
+
         trail.style.left = cursorX + 'px';
         trail.style.top = cursorY + 'px';
-        
+
         requestAnimationFrame(animate);
     };
-    
+
     animate();
-    
+
     setTimeout(() => {
         trail.style.opacity = '0';
         setTimeout(() => trail.remove(), 300);
@@ -219,3 +219,25 @@ document.addEventListener('mousemove', () => {
 // ===== CONSOLE MESSAGE =====
 console.log('%c👋 Welcome to Sharanya\'s Portfolio!', 'color: #6366f1; font-size: 20px; font-weight: bold;');
 console.log('%cBuilt with passion for code', 'color: #ec4899; font-size: 14px;');
+
+// ===== CERTIFICATE MODAL =====
+function openCertModal(imageSrc) {
+    const modal = document.getElementById('certModal');
+    const modalImg = document.getElementById('certModalImage');
+    modal.style.display = 'block';
+    modalImg.src = imageSrc;
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling
+}
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeCertModal();
+    }
+});

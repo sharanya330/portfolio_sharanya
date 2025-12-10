@@ -27,6 +27,7 @@
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions">
@@ -341,6 +342,62 @@
                         </span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card" onclick="openCertModal('cert-react.jpg')">
+                    <div class="certification-image-container">
+                        <img src="cert-react.jpg" alt="React Certificate" class="certification-image">
+                        <div class="certification-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <p>Click to view certificate</p>
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">React</h3>
+                        <p class="certification-issuer">
+                            <i class="fas fa-building"></i>
+                            MindLuster
+                        </p>
+                        <p class="certification-details">
+                            <i class="fas fa-id-card"></i>
+                            Certificate No: 78131d58
+                        </p>
+                    </div>
+                </div>
+
+                <div class="certification-card" onclick="openCertModal('cert-typescript.jpg')">
+                    <div class="certification-image-container">
+                        <img src="cert-typescript.jpg" alt="TypeScript Certificate" class="certification-image">
+                        <div class="certification-overlay">
+                            <i class="fas fa-search-plus"></i>
+                            <p>Click to view certificate</p>
+                        </div>
+                    </div>
+                    <div class="certification-content">
+                        <h3 class="certification-title">TypeScript for JavaScript Developers</h3>
+                        <p class="certification-issuer">
+                            <i class="fas fa-building"></i>
+                            MindLuster
+                        </p>
+                        <p class="certification-details">
+                            <i class="fas fa-id-card"></i>
+                            Certificate No: a6648697
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate Modal -->
+            <div id="certModal" class="cert-modal" onclick="closeCertModal()">
+                <span class="cert-modal-close">&times;</span>
+                <img class="cert-modal-content" id="certModalImage">
             </div>
         </div>
     </section>
